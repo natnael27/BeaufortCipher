@@ -1,10 +1,11 @@
 public class BeaufortCipher {
-
+   
     public static String beaufortEncrypt(String plainText, String key) {
         StringBuilder cipherText = new StringBuilder();
         int keyIndex = 0;
 
         for (char plainChar : plainText.toCharArray()) {
+            
             if (Character.isLetter(plainChar)) {
                 char keyChar = key.charAt(keyIndex);
                 int shift = Character.toUpperCase(keyChar) - 'A';
@@ -12,12 +13,14 @@ public class BeaufortCipher {
 
                 if (Character.isLowerCase(plainChar)) {
                     cipherText.append(Character.toLowerCase(encryptedChar));
-                } else {
+                } 
+                else {
                     cipherText.append(encryptedChar);
                 }
 
                 keyIndex = (keyIndex + 1) % key.length();
-            } else {
+            } 
+            else {
                 cipherText.append(plainChar);
             }
         }
@@ -30,6 +33,7 @@ public class BeaufortCipher {
         int keyIndex = 0;
 
         for (char cipherChar : cipherText.toCharArray()) {
+            
             if (Character.isLetter(cipherChar)) {
                 char keyChar = key.charAt(keyIndex);
                 int shift = Character.toUpperCase(keyChar) - 'A';
@@ -37,12 +41,14 @@ public class BeaufortCipher {
 
                 if (Character.isLowerCase(cipherChar)) {
                     plainText.append(Character.toLowerCase(decryptedChar));
-                } else {
+                } 
+                else {
                     plainText.append(decryptedChar);
                 }
 
                 keyIndex = (keyIndex + 1) % key.length();
-            } else {
+            } 
+            else {
                 plainText.append(cipherChar);
             }
         }
